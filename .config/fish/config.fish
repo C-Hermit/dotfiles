@@ -1,5 +1,6 @@
+
 if status is-interactive
-    # Commands to run in interactive sessions can go here
+	
+	# 终端美化
+	starship init fish|source
 end
-# 终端美化
-starship init fish|source
