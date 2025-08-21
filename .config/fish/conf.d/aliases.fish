@@ -10,6 +10,6 @@ if status is-interactive
 	# stow alias
 	alias heartstow='cd ~/doc/heart && stow -t ~ . --adopt && cd - && echo "heart is stow" '
 	alias heartunstow='cd ~/doc/heart && stow -D -t ~ . && cd - && echo "heart is unstow" '
-	alias heartrestow='cd ~/doc/heart && stow -R -t ~ . && cd -  && echo "heart is unstow" '
+	alias heartrestow='cd ~/doc/heart && stow -R -t ~ . && cd -  && echo "heart is restow" '
 
 end
