@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=QQ
-Exec=linuxqq %U
+Exec=linuxqq --force-device-scale-factor=1.44 %U
 Terminal=false
 Type=Application
 Icon=qq

@@ -1,0 +1,18 @@
+[Desktop Entry]
+Type=Application
+Name=Waydroid
+Exec=sh -c "cage waydroid show-full-ui"
+Icon=waydroid
+Terminal=false
+Type=Application
+Categories=System;Utility;
+Keywords=android;emulator;
+
+[Desktop Action stop]
+Name=Stop Waydroid
+Exec=waydroid session stop
+Icon=waydroid
+
+[Desktop Action initialize]
+Name=Initialize Waydroid
+Exec=waydroid init --client

@@ -1,0 +1,6 @@
+[MIME Cache]
+x-scheme-handler/baiduyunguanjia=baidunetdisk.desktop;
+x-scheme-handler/clash=clash-verge-handler.desktop;
+x-scheme-handler/clash-verge=clash-verge-handler.desktop;
+x-scheme-handler/fdm=freedownloadmanager_fdm_up.desktop;
+x-scheme-handler/obsidian=obsidian.desktop;
