@@ -1,0 +1,33 @@
+# alacritty
+# @author hermit
+# @since 2026
+
+# font
+
+[font]
+
+# 正常字形
+normal = { family = "atkinson hyperlegible mono nerd font", style = "Regular" }
+
+# 粗体字形
+bold = { family = "atkinson hyperlegible mono nerd font", style = "Bold" }
+
+# 斜体字形
+italic = { family = "atkinson hyperlegible mono nerd font", style = "Italic" }
+
+# 粗斜体字形
+bold_italic = { family = "atkinson hyperlegible mono nerd font", style = "Bold Italic" }
+
+# 字体大小
+size = 10.0
+
+# 偏移量
+offset = { x = 0,y= 1 }
+
+# 字形偏移量
+#glyph_offset = { x = 0,y = 0 }
+
+#
+#builtin_box_drawing = false
+[window]
+opacity = 0.8

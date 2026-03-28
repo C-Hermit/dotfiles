@@ -1,0 +1,6 @@
+[user]
+	name = hermit
+	email = cai3236513802@qq.com
+[core]
+	editor = nvim
+	compression = 0

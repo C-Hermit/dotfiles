@@ -1,0 +1,30 @@
+MenuBar=Disabled
+
+[Desktop Entry]
+FullScreen=false
+
+[General]
+LockSidebar=true
+ShowSidebar=false
+
+[Recent Files]
+File1[$e]=$HOME/data/sync/ebook/out_ebook/2026年操作系统考研复习指导 - 王道论坛.pdf
+File10[$e]=$HOME/ebook/out_ebook/数据库系统概论 - 王珊 & 杜小勇 & 陈红.pdf
+File2[$e]=$HOME/data/sync/ebook/out_ebook/计算机系统基础 - 袁春风 & 余子濠.pdf
+File3[$e]=$HOME/data/sync/ebook/out_ebook/2026年计算机组成原理考研复习指导 - 王道论坛.pdf
+File4[$e]=$HOME/data/sync/ebook/out_ebook/计算机系统结构 - 李学干.pdf
+File5[$e]=$HOME/data/sync/ebook/out_ebook/高等数学下册 - 同济大学数学科学学院.pdf
+File6[$e]=$HOME/doc/考研数学/26张宇基础30讲（高等数学分册）【微信公众号：Lazing】.pdf
+File7[$e]=$HOME/doc/qqfile/实验2 进程控制与进程调度 (1).pdf
+File8[$e]=$HOME/data/sync/ebook/out_ebook/ARM Cortex嵌入式系统原理及应用 基于STM32F407微控制器的HAL库开发 - 黄克亚.pdf
+File9[$e]=$HOME/data/sync/ebook/out_ebook/2026年计算机网络考研复习指导 - 王道论坛.pdf
+Name1[$e]=2026年操作系统考研复习指导 - 王道论坛.pdf
+Name10[$e]=数据库系统概论 - 王珊 & 杜小勇 & 陈红.pdf
+Name2[$e]=计算机系统基础 - 袁春风 & 余子濠.pdf
+Name3[$e]=2026年计算机组成原理考研复习指导 - 王道论坛.pdf
+Name4[$e]=计算机系统结构 - 李学干.pdf
+Name5[$e]=高等数学下册 - 同济大学数学科学学院.pdf
+Name6[$e]=26张宇基础30讲（高等数学分册）【微信公众号：Lazing】.pdf
+Name7[$e]=实验2 进程控制与进程调度 (1).pdf
+Name8[$e]=ARM Cortex嵌入式系统原理及应用 基于STM32F407微控制器的HAL库开发 - 黄克亚.pdf
+Name9[$e]=2026年计算机网络考研复习指导 - 王道论坛.pdf
