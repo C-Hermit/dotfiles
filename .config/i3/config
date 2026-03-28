@@ -177,6 +177,12 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
+# 截图软件快捷键
+bindsym Mod1+c exec --no-startup-id flameshot gui
+
+#  划词翻译 (最常用)
+bindsym Mod1+v exec --no-startup-id curl "http://127.0.0.1:60828/ocr_recognize?screenshot=true"
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -233,3 +239,7 @@ exec --no-startup-id picom -b &
 exec --no-startup-id pot &
 #启动截图软件
 exec --no-startup-id flameshot &
+
+# 1. 强制 pot 窗口浮动并置顶（使用正则忽略大小写匹配）
+for_window [class="(?i)pot"] floating enable, border none, focus, sticky enable
+
