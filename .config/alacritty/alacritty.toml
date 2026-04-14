@@ -19,7 +19,7 @@ italic = { family = "atkinson hyperlegible mono nerd font", style = "Italic" }
 bold_italic = { family = "atkinson hyperlegible mono nerd font", style = "Bold Italic" }
 
 # 字体大小
-size = 10.0
+size = 13.0
 
 # 偏移量
 offset = { x = 0,y= 1 }

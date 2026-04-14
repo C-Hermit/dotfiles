@@ -1,0 +1,8 @@
+[Desktop Entry]
+Categories=Utility;
+Comment=Pot App
+Exec=env GDK_SCALE=2 GDK_DPI_SCALE=0.68 pot
+Icon=pot
+Name=pot
+Terminal=false
+Type=Application

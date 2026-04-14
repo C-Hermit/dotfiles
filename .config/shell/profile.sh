@@ -31,10 +31,12 @@ export XDG_STATE_HOME="$HOME/.local/state"
 
 # Qt 应用（Pot）自动缩放
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
+# 允许自动缩放
+# export GDK_SCALE=1
 # 告诉 GTK 应用使用 2 倍缩放
-export GDK_SCALE=2
+# export GDK_SCALE=2
 # 修正字体大小，避免 2 倍缩放后字体过大
-export GDK_DPI_SCALE=0.5
+# export GDK_DPI_SCALE=0.5
 
 # Fcitx5 - X11 环境通用配置
 export XMODIFIERS="@im=fcitx"

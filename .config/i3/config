@@ -5,7 +5,7 @@
 # this file and re-run i3-config-wizard(1).
 #
 
-# i3 config file (v4)
+
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
@@ -21,18 +21,18 @@ font pango:atkinsonhyperlegiblemonofont 12
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
-exec --no-startup-id dex --autostart --environment i3
+#exec --no-startup-id dex --autostart --environment i3
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+#exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 #set $refresh_i3status killall -SIGUSR1 i3status
@@ -57,10 +57,10 @@ bindsym XF86AudioMicMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SOUR
 # --- 屏幕亮度控制 (使用 light) ---
 
 # 增加亮度 (每次增加 5%)
-bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 1
 
 # 降低亮度 (每次减少 5%)
-bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 1
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -236,10 +236,16 @@ exec --no-startup-id clash-verge &
 # 启动混成器
 exec --no-startup-id picom -b &
 # 启动OCR
-exec --no-startup-id pot &
+exec --no-startup-id env GDK_SCALE=2 GDK_DPI_SCALE=0.68 pot &
 #启动截图软件
 exec --no-startup-id flameshot &
 
+# 启动密码管理器
+exec --no-startup-id keepassxc &
+
+# 启动密码管理器
+exec --no-startup-id fdm &
+
 # 1. 强制 pot 窗口浮动并置顶（使用正则忽略大小写匹配）
-for_window [class="(?i)pot"] floating enable, border none, focus, sticky enable
+#for_window [class="(?i)pot"] floating enable, border none, focus, sticky enable
 
