@@ -175,7 +175,8 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "zsh -c 'source ~/.config/shell/function.sh && i3_save_session'&& i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # 截图软件快捷键
 bindsym Mod1+c exec --no-startup-id flameshot gui
@@ -243,8 +244,15 @@ exec --no-startup-id flameshot &
 # 启动密码管理器
 exec --no-startup-id keepassxc &
 
-# 启动密码管理器
-exec --no-startup-id fdm &
+# 启动下载管理器
+# exec --no-startup-id fdm &
+# assign [class="Free Download Manager"] $ws10
+
+# 启动邮箱
+# exec --no-startup-id sleep 2 && thunderbird
+# assign [class="org.mozilla.Thunderbird"] $ws10
+# 开机时自动恢复上一次保存的所有工作区
+exec --no-startup-id zsh -c "source ~/.config/shell/function.sh && i3_restore_session"
 
 # 1. 强制 pot 窗口浮动并置顶（使用正则忽略大小写匹配）
 #for_window [class="(?i)pot"] floating enable, border none, focus, sticky enable
