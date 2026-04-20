@@ -4,3 +4,5 @@
 [core]
 	editor = nvim
 	compression = 0
+[init]
+	defaultBranch = main
