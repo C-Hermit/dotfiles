@@ -16,6 +16,7 @@ alias heartunst='stow -D -d "${HOME}/data/heart"  -t "$HOME" . && echo "heart is
 alias hosts='sudo wget https://raw.githubusercontent.com/googlehosts/hosts/master/hosts-files/hosts -O /etc/hosts'
 
 alias yay='paru'
+alias lf='yazi'
 
 # 设置关机和重启的别名
 alias poweroff='i3_save_session && systemctl poweroff'
