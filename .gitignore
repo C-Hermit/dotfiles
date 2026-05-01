@@ -30,4 +30,7 @@
 .ssh/known_hosts
 .ssh/known_hosts.old
 .ssh/authorized_keys
-
+.local/share/Trash/
+.local/state/
+.ssh/id_ed25519
+.ssh/id_ed25519.pub
