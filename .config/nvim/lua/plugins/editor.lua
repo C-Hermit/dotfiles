@@ -1,152 +1,152 @@
-return{
-    {
-        "folke/which-key.nvim",
-        event = "VeryLazy",
-        opts_extend = { "spec" },
-        opts = {
-            preset = "helix",
-            defaults = {},
-            spec = {
-                {
-                    mode = { "n", "x" },
-                    { "<leader><tab>", group = "tabs" },
-                    { "<leader>c", group = "code" },
-                    { "<leader>d", group = "debug" },
-                    { "<leader>dp", group = "profiler" },
-                    { "<leader>f", group = "file/find" },
-                    { "<leader>g", group = "git" },
-                    { "<leader>gh", group = "hunks" },
-                    { "<leader>q", group = "quit/session" },
-                    { "<leader>s", group = "search" },
-                    { "<leader>u", group = "ui" },
-                    { "<leader>x", group = "diagnostics/quickfix" },
-                    { "[", group = "prev" },
-                    { "]", group = "next" },
-                    { "g", group = "goto" },
-                    { "gs", group = "surround" },
-                    { "z", group = "fold" },
-                    {
-                        "<leader>b",
-                  
-                        expand = function()
-                            return require("which-key.extras").expand.buf()
-                        end,
-                    },
-                    {
-                        "<leader>w",
-                        group = "windows",
-                        proxy = "<c-w>",
-                        expand = function()
-                            return require("which-key.extras").expand.win()
-                        end,
-                    },
-                    -- better descriptions
-                    { "gx", desc = "Open with system app" },
-                },
-            },
-        },
-        keys = {
-            {
-                "<leader>?",
-                function()
-                    require("which-key").show({ global = false })
-                end,
-                desc = "Buffer Keymaps (which-key)",
-            },
-            {
-                "<c-w><space>",
-                function()
-                    require("which-key").show({ keys = "<c-w>", loop = true })
-                end,
-                desc = "Window Hydra Mode (which-key)",
-            },
-        },
-        config = function(_, opts)
-            local wk = require("which-key")
-            require("which-key").setup(opts)
-        end,
-    },
-    --经典的左侧文件树。支持文件预览、重命名、删除
-    {
-        "nvim-tree/nvim-tree.lua",
-        -- 依赖这个插件来显示漂亮的文件图标 (需要装 Nerd Font)
-        dependencies = { "nvim-tree/nvim-web-devicons" },
-        keys = {
-            -- 绑定快捷键 <leader>e 来开关左侧目录树 (对应 VS Code 的 Ctrl+B)
-            { "<leader>e", "<cmd>NvimTreeToggle<CR>", desc = "Toggle Explorer" },
-        },
-        opts = {
-            view = {
-                width = 30,           -- 侧边栏宽度
-                side = "left",        -- 放在左边
-            },
-            filters = {
-                dotfiles = false,     -- 是否隐藏 .git, .config 这种隐藏文件 (false 代表不隐藏)
-            },
-            actions = {
-                open_file = { quit_on_open = false }, -- 在文件树里回车打开文件时，不要关闭文件树
-            },
-        },
-    },
-    --对应 VS Code 的 Ctrl + P (搜索文件) 和 Ctrl + Shift + F (搜索文本)。
-    {
-        "nvim-telescope/telescope.nvim",
-        -- Telescope 强依赖 plenary，必须加上
-        dependencies = { "nvim-lua/plenary.nvim" },
-        keys = {
-            -- 找文件 (按空格+ff)
-            { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files (Ctrl+P)" },
-            -- 全局找代码内容 (按空格+fg)
-            { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live Grep (Ctrl+Shift+F)" },
-            -- 找当前打开的标签页 (按空格+fb)
-            { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find Buffers" },
-        },
-        opts = {
-            defaults = {
-                prompt_prefix = " ",   -- 搜索框前缀图标
-                selection_caret = " ", -- 选中行的图标
-                mappings = {
-                    i = {
-                        -- 在搜索框输入时，用 Ctrl+j 和 Ctrl+k 来上下移动 (脱离方向键)
-                        ["<C-j>"] = require("telescope.actions").move_selection_next,
-                        ["<C-k>"] = require("telescope.actions").move_selection_previous,
-                    },
-                },
-            },
-        },
-    },
-    --在行号左侧显示 Git 修改状态（绿加蓝改红删）
-    {
-        "lewis6991/gitsigns.nvim",
-        event = { "BufReadPre", "BufNewFile" },
-        opts = {
-            signs = {
-                add          = { text = "▎" }, -- 新增行用绿色细线
-                change       = { text = "▎" }, -- 修改行用蓝色细线
-                delete       = { text = "" }, -- 删除行用红色小箭头
-                topdelete    = { text = "" },
-                changedelete = { text = "▎" },
-                untracked    = { text = "▎" },
-            },
-        },
-    },
-    --自动补全括号和引号
-    {
-        "windwp/nvim-autopairs",
-        event = "InsertEnter",
-        config = function()
-            -- 初始化括号补全
-            require("nvim-autopairs").setup({
-                check_ts = true, -- 结合 treesitter，防止在字符串或者注释里乱补全括号
-            })
-
-            -- 这一步很关键：让自动括号和 nvim-cmp 补全引擎联动
-            -- 比如补全一个函数 printf 时，回车确认不仅会上屏 printf，还会自动带上 () 并且把光标放在中间
-            local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-            local cmp_status_ok, cmp = pcall(require, "cmp")
-            if cmp_status_ok then
-                cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-            end
-        end,
-    },
+return {
+  --     {
+  --         "folke/which-key.nvim",
+  --         event = "VeryLazy",
+  --         opts_extend = { "spec" },
+  --         opts = {
+  --             preset = "helix",
+  --             defaults = {},
+  --             spec = {
+  --                 {
+  --                     mode = { "n", "x" },
+  --                     { "<leader><tab>", group = "tabs" },
+  --                     { "<leader>c", group = "code" },
+  --                     { "<leader>d", group = "debug" },
+  --                     { "<leader>dp", group = "profiler" },
+  --                     { "<leader>f", group = "file/find" },
+  --                     { "<leader>g", group = "git" },
+  --                     { "<leader>gh", group = "hunks" },
+  --                     { "<leader>q", group = "quit/session" },
+  --                     { "<leader>s", group = "search" },
+  --                     { "<leader>u", group = "ui" },
+  --                     { "<leader>x", group = "diagnostics/quickfix" },
+  --                     { "[", group = "prev" },
+  --                     { "]", group = "next" },
+  --                     { "g", group = "goto" },
+  --                     { "gs", group = "surround" },
+  --                     { "z", group = "fold" },
+  --                     {
+  --                         "<leader>b",
+  --
+  --                         expand = function()
+  --                             return require("which-key.extras").expand.buf()
+  --                         end,
+  --                     },
+  --                     {
+  --                         "<leader>w",
+  --                         group = "windows",
+  --                         proxy = "<c-w>",
+  --                         expand = function()
+  --                             return require("which-key.extras").expand.win()
+  --                         end,
+  --                     },
+  --                     -- better descriptions
+  --                     { "gx", desc = "Open with system app" },
+  --                 },
+  --             },
+  --         },
+  --         keys = {
+  --             {
+  --                 "<leader>?",
+  --                 function()
+  --                     require("which-key").show({ global = false })
+  --                 end,
+  --                 desc = "Buffer Keymaps (which-key)",
+  --             },
+  --             {
+  --                 "<c-w><space>",
+  --                 function()
+  --                     require("which-key").show({ keys = "<c-w>", loop = true })
+  --                 end,
+  --                 desc = "Window Hydra Mode (which-key)",
+  --             },
+  --         },
+  --         config = function(_, opts)
+  --             local wk = require("which-key")
+  --             require("which-key").setup(opts)
+  --         end,
+  --     },
+  --     --经典的左侧文件树。支持文件预览、重命名、删除
+  --     {
+  --         "nvim-tree/nvim-tree.lua",
+  --         -- 依赖这个插件来显示漂亮的文件图标 (需要装 Nerd Font)
+  --         dependencies = { "nvim-tree/nvim-web-devicons" },
+  --         keys = {
+  --             -- 绑定快捷键 <leader>e 来开关左侧目录树 (对应 VS Code 的 Ctrl+B)
+  --             { "<leader>e", "<cmd>NvimTreeToggle<CR>", desc = "Toggle Explorer" },
+  --         },
+  --         opts = {
+  --             view = {
+  --                 width = 30,           -- 侧边栏宽度
+  --                 side = "left",        -- 放在左边
+  --             },
+  --             filters = {
+  --                 dotfiles = false,     -- 是否隐藏 .git, .config 这种隐藏文件 (false 代表不隐藏)
+  --             },
+  --             actions = {
+  --                 open_file = { quit_on_open = false }, -- 在文件树里回车打开文件时，不要关闭文件树
+  --             },
+  --         },
+  --     },
+  --     --对应 VS Code 的 Ctrl + P (搜索文件) 和 Ctrl + Shift + F (搜索文本)。
+  --     {
+  --         "nvim-telescope/telescope.nvim",
+  --         -- Telescope 强依赖 plenary，必须加上
+  --         dependencies = { "nvim-lua/plenary.nvim" },
+  --         keys = {
+  --             -- 找文件 (按空格+ff)
+  --             { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files (Ctrl+P)" },
+  --             -- 全局找代码内容 (按空格+fg)
+  --             { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live Grep (Ctrl+Shift+F)" },
+  --             -- 找当前打开的标签页 (按空格+fb)
+  --             { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find Buffers" },
+  --         },
+  --         opts = {
+  --             defaults = {
+  --                 prompt_prefix = " ",   -- 搜索框前缀图标
+  --                 selection_caret = " ", -- 选中行的图标
+  --                 mappings = {
+  --                     i = {
+  --                         -- 在搜索框输入时，用 Ctrl+j 和 Ctrl+k 来上下移动 (脱离方向键)
+  --                         ["<C-j>"] = require("telescope.actions").move_selection_next,
+  --                         ["<C-k>"] = require("telescope.actions").move_selection_previous,
+  --                     },
+  --                 },
+  --             },
+  --         },
+  --     },
+  --     --在行号左侧显示 Git 修改状态（绿加蓝改红删）
+  --     {
+  --         "lewis6991/gitsigns.nvim",
+  --         event = { "BufReadPre", "BufNewFile" },
+  --         opts = {
+  --             signs = {
+  --                 add          = { text = "▎" }, -- 新增行用绿色细线
+  --                 change       = { text = "▎" }, -- 修改行用蓝色细线
+  --                 delete       = { text = "" }, -- 删除行用红色小箭头
+  --                 topdelete    = { text = "" },
+  --                 changedelete = { text = "▎" },
+  --                 untracked    = { text = "▎" },
+  --             },
+  --         },
+  --     },
+  --     --自动补全括号和引号
+  --     {
+  --         "windwp/nvim-autopairs",
+  --         event = "InsertEnter",
+  --         config = function()
+  --             -- 初始化括号补全
+  --             require("nvim-autopairs").setup({
+  --                 check_ts = true, -- 结合 treesitter，防止在字符串或者注释里乱补全括号
+  --             })
+  --
+  --             -- 这一步很关键：让自动括号和 nvim-cmp 补全引擎联动
+  --             -- 比如补全一个函数 printf 时，回车确认不仅会上屏 printf，还会自动带上 () 并且把光标放在中间
+  --             local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+  --             local cmp_status_ok, cmp = pcall(require, "cmp")
+  --             if cmp_status_ok then
+  --                 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+  --             end
+  --         end,
+  --     },
 }

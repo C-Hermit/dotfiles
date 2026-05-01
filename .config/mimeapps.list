@@ -19,6 +19,11 @@ text/calendar=userapp-Thunderbird-SBRPN3.desktop
 application/x-extension-ics=userapp-Thunderbird-SBRPN3.desktop
 x-scheme-handler/webcals=userapp-Thunderbird-SBRPN3.desktop
 x-scheme-handler/chatbox=xyz.chatboxapp.app.desktop
+application/pdf=org.kde.okular.desktop
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=wps-office-wps.desktop
+x-scheme-handler/ccswitch=cc-switch-handler.desktop
+x-scheme-handler/claude-cli=claude-code-url-handler.desktop
+application/lrf=calibre-lrfviewer.desktop
 
 [Added Associations]
 x-scheme-handler/mailto=userapp-Thunderbird-6NNTN3.desktop;

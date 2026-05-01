@@ -1,25 +1,25 @@
-return{
-    {
-        "folke/tokyonight.nvim",
-        lazy = false,
-        priority=1000,
-        opts ={ style = "moon" },
-        config = function(_, opts)
-            -- 加载插件配置
-            require("tokyonight").setup(opts)
-            -- 3. 在这里正式激活配色
-            vim.cmd([[colorscheme tokyonight]])
-        end,
-    },
-    {
-        "akinsho/bufferline.nvim",
-        optional = true,
-        opts = function(_, opts)
-        if (vim.g.colors_name or ""):find("catppuccin") then
-            opts.highlights = require("catppuccin.special.bufferline").get_theme()
-        end
-    end,
-    }
+return {
+  --     {
+  --         "folke/tokyonight.nvim",
+  --         lazy = false,
+  --         priority=1000,
+  --         opts ={ style = "moon" },
+  --         config = function(_, opts)
+  --             -- 加载插件配置
+  --             require("tokyonight").setup(opts)
+  --             -- 3. 在这里正式激活配色
+  --             vim.cmd([[colorscheme tokyonight]])
+  --         end,
+  --     },
+  --     {
+  --         "akinsho/bufferline.nvim",
+  --         optional = true,
+  --         opts = function(_, opts)
+  --         if (vim.g.colors_name or ""):find("catppuccin") then
+  --             opts.highlights = require("catppuccin.special.bufferline").get_theme()
+  --         end
+  --     end,
+  --     }
 }
-
-
+--
+--
