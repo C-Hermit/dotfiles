@@ -256,4 +256,4 @@ exec --no-startup-id zsh -c "source ~/.config/shell/function.sh && i3_restore_se
 
 # 1. 强制 pot 窗口浮动并置顶（使用正则忽略大小写匹配）
 #for_window [class="(?i)pot"] floating enable, border none, focus, sticky enable
-
+exec --no-startup-id dbus-update-activation-environment --systemd DISPLAY I3SOCK XDG_CURRENT_DESKTOP=i3
